@@ -40,5 +40,5 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: |
-            ${{ github.repository }}:latest
-            ghcr.io/${{ github.repository }}:latest
+            miguelndecarvalho/docker-baseimage-archlinux:latest
+            ghcr.io/miguelndecarvalho/docker-baseimage-archlinux:latest
