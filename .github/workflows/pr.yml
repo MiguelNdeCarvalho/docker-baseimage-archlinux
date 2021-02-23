@@ -1,0 +1,24 @@
+name: Test PRs
+
+on:
+  push:
+    branches-ignore: main
+  pull_request:
+    branches: main
+
+jobs:
+  lint-code:
+    name: Lint code
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout cout
+        uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: github/super-linter@v3
+        env:
+          VALIDATE_BASH: true
+          VALIDATE_DOCKERFILE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
