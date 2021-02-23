@@ -13,7 +13,7 @@ RUN echo "- perform an update -" && \
     pacman -Syu --noconfirm
 
 RUN echo "- create user and give permissions -" && \
-    mkdir /home/abc && \
+    mkdir /default /config && \
     useradd -d /home/abc abc && \
     chown abc /home/abc
 
