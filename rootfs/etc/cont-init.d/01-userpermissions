@@ -8,5 +8,9 @@ PGID=${PGID:-1001}
 usermod -o -u "$PUID" abc
 groupmod -o -g "$PGID" abc
 
-# Print UID and GIDec
+# Print UID and GID
 echo -e "UID: $(id -u abc)\nGID: $(id -g abc)"
+
+# Give abc user permisisons to the folders
+chown -R abc:abc /default
+chown -R abc:abc /config
