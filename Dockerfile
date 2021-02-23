@@ -17,6 +17,9 @@ RUN echo "- create user and give permissions -" && \
     useradd -d /home/abc abc && \
     chown abc /home/abc
 
+RUN echo "- cleanup -" && \
+    pacman -Scc --noconfirm
+
 COPY rootfs/ /
 
 ENTRYPOINT ["/init"]
