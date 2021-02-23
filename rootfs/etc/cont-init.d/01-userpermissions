@@ -8,5 +8,5 @@ PGID=${PGID:-1001}
 usermod -o -u "$PUID" abc
 groupmod -o -g "$PGID" abc
 
-# Print UID and GIDec
+# Print UID and GID
 echo -e "UID: $(id -u abc)\nGID: $(id -g abc)"
