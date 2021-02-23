@@ -12,8 +12,7 @@ RUN chmod +x /tmp/s6-overlay-amd64-installer && /tmp/s6-overlay-amd64-installer 
 RUN echo "- create user and give permissions -" && \
     mkdir /home/abc && \
     useradd -d /home/abc abc && \
-    chown abc /home/abc && \
-    echo "abc ALL=(ALL) NOPASSWD: ALL" >> /etc/sudoers
+    chown abc /home/abc
 
 COPY rootfs/ /
 
