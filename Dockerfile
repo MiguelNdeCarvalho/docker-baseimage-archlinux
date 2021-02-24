@@ -22,7 +22,8 @@ RUN echo "- create user and give permissions -" && \
     useradd -d /config -s /bin/false abc
 
 RUN echo "- cleanup -" && \
-    pacman -Scc --noconfirm
+    rm /glibc-linux4-2.33-4-x86_64.pkg.tar.zst && \
+    pacman -Scc --noconfirm 
 
 COPY rootfs/ /
 
