@@ -18,7 +18,7 @@ RUN echo "- perform an update -" && \
     pacman -Syu --noconfirm
 
 RUN echo "- create user and give permissions -" && \
-    mkdir /default /config && \
+    mkdir /app /default /config && \
     useradd -d /config -s /bin/false abc
 
 RUN echo "- cleanup -" && \
