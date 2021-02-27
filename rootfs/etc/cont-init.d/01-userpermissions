@@ -12,5 +12,6 @@ groupmod -o -g "$PGID" abc
 echo -e "UID: $(id -u abc)\nGID: $(id -g abc)"
 
 # Give abc user permisisons to the folders
+chown -R abc:abc /app
 chown -R abc:abc /default
 chown -R abc:abc /config
