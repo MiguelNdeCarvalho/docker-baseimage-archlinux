@@ -19,7 +19,7 @@ RUN echo "- perform an update -" && \
 
 RUN echo "- create user and give permissions -" && \
     mkdir /app /default /config && \
-    useradd -d /config -s /bin/false abc
+    useradd -d /config abc
 
 RUN echo "- cleanup -" && \
     rm /glibc-linux4-2.33-4-x86_64.pkg.tar.zst && \
