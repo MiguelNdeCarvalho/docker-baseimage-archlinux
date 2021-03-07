@@ -4,8 +4,11 @@ on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
   schedule:
-    - cron: "0 1 * * 1" # Run every Monday at 1AM
+    - cron: "0 0 * * 0" # Run every Sunday at 00:00
 
 jobs:
   publish-image:
@@ -38,7 +41,7 @@ jobs:
         with:
           context: .
           file: ./Dockerfile
-          push: true
+          push: ${{ github.event_name != 'pull_request' }}
           tags: |
             miguelndecarvalho/docker-baseimage-archlinux:latest
             ghcr.io/miguelndecarvalho/docker-baseimage-archlinux:latest
