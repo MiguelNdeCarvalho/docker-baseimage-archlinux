@@ -16,3 +16,5 @@ echo -e "UID: $(id -u abc)\nGID: $(id -g abc)"
 chown -R abc:abc /app
 chown -R abc:abc /default
 chown -R abc:abc /config
+
+echo "Made by MiguelNdeCarvalho"
