@@ -13,9 +13,6 @@ RUN echo "- create user and give permissions -" && \
     mkdir /app /default /config && \
     useradd -d /config abc
 
-RUN echo "- cleanup -" && \
-    pacman -Scc --noconfirm 
-
 COPY rootfs/ /
 
 ENTRYPOINT ["/init"]
