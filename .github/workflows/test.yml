@@ -1,26 +1,27 @@
-name: Lint Code
+name: Test Code
 
 on:
-  push:
-    branches:
-      - main
   pull_request:
     branches:
       - main
 
 jobs:
-  lint-code:
-    name: Lint code
+  lint-bash:
+    name: Lint Bash
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout cout
+      - name: Checkout
         uses: actions/checkout@v3
+      - name: Lint Bash (Shellcheck)
+        uses: ludeeus/action-shellcheck@master
         with:
-          fetch-depth: 0
-      - name: Lint Code Base
-        uses: github/super-linter@v4
-        env:
-          VALIDATE_BASH: true
-          VALIDATE_DOCKERFILE: true
-          DEFAULT_BRANCH: main
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          scandir: './rootfs/etc/cont-init.d'
+          additional_files: '01-userpermissions'
+  lint-dockerfile:
+    name: Lint Dockerfile
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Lint Dockerfile (Hadolint)
+        uses: hadolint/hadolint-action@v2.0.0
